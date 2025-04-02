@@ -15,6 +15,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
     @livewireStyles
     @stack('styles')
+    <link rel="manifest" href="/manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(() => console.log('Service Worker registrado!'))
+                .catch(error => console.error('Erro ao registrar Service Worker:', error));
+        }
+    </script>
 </head>
 
 <body class="bg-gray-200">

@@ -9,6 +9,15 @@ Route::get('/home', function () {
     return view('pages.home');
 })->name('home');
 
+Route::get('/', function () {
+    return view('auth.login');
+});
+
+Route::get('/offline', function () {
+    return view('offline');
+});
+
+
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
