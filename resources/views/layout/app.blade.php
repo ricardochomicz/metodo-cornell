@@ -23,6 +23,18 @@
                 .catch(error => console.error('Erro ao registrar Service Worker:', error));
         }
     </script>
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Suporte para iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Método Cornell">
+
+    <!-- Ícones para iOS -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png">
+    <link rel="apple-touch-startup-image" href="/icons/icon-512x512.png">
+
 </head>
 
 <body class="bg-gray-200">
