@@ -5,13 +5,13 @@ use App\Http\Controllers\NotebookController;
 use App\Http\Controllers\NoteController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/home', function () {
-    return view('pages.home');
-})->name('home');
-
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
+
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
 
 Route::get('/offline', function () {
     return view('offline');
