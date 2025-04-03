@@ -4,7 +4,7 @@
         <h1 class="text-xl font-bold text-gray-800 mb-2 sm:mb-0">Nova Anotação - Caderno
             {{ @$notebook->title ?? @$data->notebook->title }}</h1>
         <div class="flex flex-wrap justify-start sm:justify-end space-x-3 space-y-2 sm:space-y-0">
-            <button type="submit" class="text-gray-600 hover:text-gray-900">
+            <button type="submit" id="submit-btn" onclick="showLoading()" class="text-gray-600 hover:text-gray-900">
                 <i class="fas fa-save"></i>
             </button>
             <a href="{{ route('notebooks.notes', @$notebook->uuid ?? @$data->notebook->uuid) }}"
@@ -50,7 +50,6 @@
             placeholder="Sintetize as principais ideias...">{{ @$data->summary ?? old('summary') }}</textarea>
     </div>
 </div>
-</form>
 
 @push('scripts')
     <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
