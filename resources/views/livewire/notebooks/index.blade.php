@@ -29,23 +29,24 @@
 
                     <div class="p-4">
                         <p class="text-gray-700 text-sm">Criado em: {{ $notebook->created_at->format('d/m/Y') }}</p>
+                        <small>{{ $notebook->notes->count() }} nota(s)</small>
                     </div>
 
                     <div class="p-4 bg-gray-100 flex justify-between items-center">
                         <div class="flex space-x-2">
                             <a href="{{ route('notebooks.edit', $notebook->id) }}"
                                 class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-lg transition duration-300 ease-in-out flex items-center">
-                                <i class="fas fa-sync-alt mr-1"></i>
+                                <i class="fas fa-sync-alt"></i>
                             </a>
 
                             <a href="{{ route('notebooks.notes', $notebook->uuid) }}"
                                 class="bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded-lg transition duration-300 ease-in-out flex items-center">
-                                <i class="fas fa-book-open mr-1"></i>
+                                <i class="fas fa-book-open"></i>
                             </a>
 
                             <a href="{{ route('notebooks.destroy', $notebook->id) }}"
                                 class="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg transition duration-300 ease-in-out flex items-center">
-                                <i class="fas fa-trash-alt mr-1"></i>
+                                <i class="fas fa-trash-alt"></i>
                             </a>
                         </div>
                         <button wire:click="toggleFavorite({{ $notebook->id }})"

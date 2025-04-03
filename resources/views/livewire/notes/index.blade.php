@@ -6,6 +6,7 @@
                 <i class="fas fa-chevron-left"></i>
             </a>
             <h1 class="text-2xl font-semibold text-gray-900">
+
                 Anotações caderno - {{ $notebook->title }}
             </h1>
         </div>
@@ -32,7 +33,9 @@
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-4">
                             <div>
-                                <h2 class="text-lg font-semibold text-gray-900 mb-1">{{ $note->title }}</h2>
+
+                                <h2 class="text-lg font-semibold text-gray-900 mb-1">
+                                    {{ $note->title }}</h2>
                                 <p class="text-sm text-gray-600">{{ $note->created_at->format('d/m/Y') }}</p>
                             </div>
                             <button wire:click="toggleImportant({{ $note->id }})"
@@ -40,27 +43,31 @@
                                 <i class="{{ $note->is_important ? 'fas fa-star' : 'far fa-star' }} text-xl"></i>
                             </button>
                         </div>
-                        <p class="text-gray-700 text-sm mb-4">
+                        <p class="text-gray-700 bg-gray-100 p-2 rounded-lg text-sm mb-4">
                             {{ Str::limit($note->summary, 80, '...') }}
                         </p>
-                        <div class="flex justify-end space-x-2">
-                            <a href="{{ route('notes.show', ['uuid' => $uuid, 'id' => $note->id]) }}"
-                                class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-2 rounded-lg transition duration-300 ease-in-out">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                            <a href="{{ route('notes.edit', $note->id) }}"
-                                class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg transition duration-300 ease-in-out">
-                                <i class="fas fa-sync-alt"></i>
-                            </a>
-                            <form method="POST" action="{{ route('notes.destroy', $note->id) }}"
-                                onsubmit="return confirm('Deseja excluir essa anotação?');">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                    class="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-lg transition duration-300 ease-in-out">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </form>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600 font-semibold">#{{ $note->id }}</span>
+                            <div class="flex space-x-2">
+
+                                <a href="{{ route('notes.show', ['uuid' => $uuid, 'id' => $note->id]) }}"
+                                    class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-2 rounded-lg transition duration-300 ease-in-out">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="{{ route('notes.edit', $note->id) }}"
+                                    class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg transition duration-300 ease-in-out">
+                                    <i class="fas fa-sync-alt"></i>
+                                </a>
+                                <form method="POST" action="{{ route('notes.destroy', $note->id) }}"
+                                    onsubmit="return confirm('Deseja excluir essa anotação?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        class="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-lg transition duration-300 ease-in-out">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

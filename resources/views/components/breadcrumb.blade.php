@@ -24,18 +24,18 @@
                                 d="m1 9 4-4-4-4" />
                         </svg>
 
-                        @if ($loop->last)
+                        {{-- @if ($loop->last)
                             <!-- Último item (não é link) -->
                             <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">
                                 {{ $link['label'] }}
                             </span>
-                        @else
-                            <!-- Links normais -->
-                            <a href="{{ $link['url'] }}"
-                                class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">
-                                {{ $link['label'] }}
-                            </a>
-                        @endif
+                        @else --}}
+                        <!-- Links normais -->
+                        <a href="{{ $link['url'] }}"
+                            class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">
+                            {{ $link['label'] }}
+                        </a>
+                        {{-- @endif --}}
                     </div>
                 </li>
             @endforeach

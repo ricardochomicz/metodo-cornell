@@ -42,9 +42,9 @@ class NoteController extends Controller
     public function store(Request $request)
     {
         try {
-            $this->noteService->store($request->all());
+            $note = $this->noteService->store($request->all());
             flash()->success('Caderno cadastrado com sucesso.');
-            return redirect()->route('notebooks.index');
+            return redirect()->route('notebooks.notes', ['uuid' => $note->notebook->uuid]);
         } catch (\Throwable $e) {
             flash()->error("Ops! Erro ao cadastrar." . $e->getMessage());
             return back();
