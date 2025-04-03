@@ -11,9 +11,10 @@
                 class="text-gray-600 hover:text-gray-900">
                 <i class="fas fa-chevron-circle-left"></i>
             </a>
-            <button class="text-gray-600 hover:text-gray-900"><i class="fas fa-print"></i></button>
-            <button class="text-gray-600 hover:text-gray-900"><i class="fas fa-download"></i></button>
-            <button class="text-gray-600 hover:text-gray-900"><i class="fas fa-image"></i></button>
+            <button type="button" id="print-button" class="text-gray-600 hover:text-gray-900"><i
+                    class="fas fa-print"></i></button>
+            <button type="button" class="text-gray-600 hover:text-gray-900"><i class="fas fa-download"></i></button>
+            <button type="button" class="text-gray-600 hover:text-gray-900"><i class="fas fa-image"></i></button>
         </div>
     </div>
     <div class="mb-4">
