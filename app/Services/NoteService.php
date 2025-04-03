@@ -12,7 +12,7 @@ class NoteService extends BaseService
         $notebook = Notebook::where('uuid', $uuid)->first();
         return $notebook->notes()
             ->orderBy('is_important', 'desc')
-            ->orderBy('title', 'asc')
+            ->orderBy('id', 'asc')
             ->filter($filters)
             ->paginate(10);
     }
