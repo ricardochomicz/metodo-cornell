@@ -14,7 +14,7 @@ class NoteService extends BaseService
             ->orderBy('is_important', 'desc')
             ->orderBy('id', 'asc')
             ->filter($filters)
-            ->paginate(10);
+            ->paginate();
     }
 
     public function get(int $id)
