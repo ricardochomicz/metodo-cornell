@@ -13,7 +13,7 @@
 
         <div class="flex flex-col sm:flex-row justify-between items-center mb-6">
             <div class="flex items-center w-full sm:w-auto">
-                <input wire:model.live="search" name="search" placeholder="Buscar anotação..."
+                <input type="search" wire:model.live="search" name="search" placeholder="Buscar anotação..."
                     class="w-full sm:w-64 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
                 <button type="button" wire:click="clearFilter"
                     class="ml-2 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-lg text-gray-700 transition duration-300 ease-in-out">
