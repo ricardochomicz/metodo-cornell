@@ -15,7 +15,7 @@ class Index extends Component
     protected $paginationTheme = 'tailwind';
 
     #[Url(history: true)]
-    public string $search;
+    public string $search = '';
 
     public string $uuid;
     public $note;
@@ -54,6 +54,7 @@ class Index extends Component
 
     public function clearFilter()
     {
+        $this->reset('search');
         $this->search = '';
     }
 }
