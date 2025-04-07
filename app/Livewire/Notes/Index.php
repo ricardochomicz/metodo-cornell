@@ -4,6 +4,7 @@ namespace App\Livewire\Notes;
 
 use App\Services\NotebookService;
 use App\Services\NoteService;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -13,18 +14,23 @@ class Index extends Component
 
     protected $paginationTheme = 'tailwind';
 
+    #[Url(history: true)]
     public string $search = '';
+
     public string $uuid;
     public $note;
 
-    protected $queryString = ['search' => ['except' => '']];
+    protected function queryString(): array
+    {
+        return [
+            'search' => ['except' => ''],
+        ];
+    }
 
     public function mount(string $uuid): void
     {
         $this->uuid = $uuid;
     }
-
-
 
     public function toggleImportant($id)
     {
@@ -46,7 +52,7 @@ class Index extends Component
         ]);
     }
 
-    public function clearFilter(): void
+    public function clearFilter()
     {
         $this->search = '';
     }
