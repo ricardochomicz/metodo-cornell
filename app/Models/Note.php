@@ -40,7 +40,13 @@ class Note extends Model
     public function scopeFilter($query, array $filters): void
     {
         $query->when($filters['search'] ?? null, function ($query, $search) {
-            $query->where('title', 'LIKE', '%' . $search . '%');
+            // Adiciona * ao final de cada palavra (para busca parcial)
+            $searchTerms = collect(explode(' ', $search))
+                ->filter() // Remove espaços em branco extras
+                ->map(fn($term) => $term . '*') // Adiciona curinga
+                ->implode(' '); // Junta de volta em uma string única
+
+            $query->whereRaw("MATCH(title) AGAINST(? IN BOOLEAN MODE)", [$searchTerms]);
         });
     }
 
