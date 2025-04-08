@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     {
         // $this->configModel();
         Notebook::observe(NotebookObserver::class);
-        // Note::observe(NoteObserver::class);
+        Note::observe(NoteObserver::class);
         Blade::directive('markdown', function ($e) {
             return "<?php echo (new Parsedown)->text($e); ?>";
         });
