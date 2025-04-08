@@ -47,7 +47,7 @@
                             {{ Str::limit($note->summary, 80, '...') }}
                         </p>
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-600 font-semibold">#{{ $note->id }}</span>
+                            <span class="text-gray-600 font-semibold">#{{ $note->note_number }}</span>
                             <div class="flex space-x-2">
 
                                 <a href="{{ route('notes.show', ['uuid' => $uuid, 'id' => $note->id]) }}"
