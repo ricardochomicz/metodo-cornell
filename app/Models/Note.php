@@ -20,6 +20,7 @@ class Note extends Model
         'summary',
         'is_important',
         'notebook_id',
+        'note_number',
     ];
 
     protected $casts = [

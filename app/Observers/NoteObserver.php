@@ -18,6 +18,9 @@ class NoteObserver
             'raw' => $note->keywords,
             'html' => (new Parsedown())->text($note->keywords)
         ]);
+
+        $max = Note::where('notebook_id', $note->notebook_id)->max('note_number');
+        $note->note_number = $max ? $max + 1 : 1;
     }
 
     public function updating(Note $note)
